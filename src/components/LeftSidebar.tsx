@@ -52,7 +52,7 @@ export const LeftSidebar = ({ isOpen, onClose }: LeftSidebarProps) => {
     }
   };
 
-  const sidebarVariants = {
+  const sidebarVariants: { [key: string]: any } = {
     closed: { 
       x: '-100%',
       transition: { 
@@ -71,7 +71,7 @@ export const LeftSidebar = ({ isOpen, onClose }: LeftSidebarProps) => {
     }
   };
 
-  const linkVariants = {
+  const linkVariants: { [key: string]: any } = {
     hidden: { x: -20, opacity: 0 },
     visible: (i: number) => ({
       x: 0,
