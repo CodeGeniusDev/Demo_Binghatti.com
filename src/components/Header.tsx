@@ -76,7 +76,7 @@ const Header = () => {
       </header>
       
       {/* Add padding to account for fixed header */}
-      <div className={`h-20 transition-all duration-300 ${scrolled ? 'h-16' : ''}`} />
+      <div className={`h-22 transition-all duration-300 ${scrolled ? 'h-16' : ''}`} />
       
       {/* Left Sidebar */}
       <LeftSidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />

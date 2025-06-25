@@ -131,7 +131,12 @@ const LogoColumn = React.memo(function LogoColumn({
 LogoColumn.displayName = 'LogoColumn'
 
 // Main LogoCarousel component
-function LogoCarousel({ columnCount = 2 }: { columnCount?: number }) {
+interface LogoCarouselProps {
+  columnCount?: number;
+  className?: string;
+}
+
+function LogoCarousel({ columnCount = 2, className = '' }: LogoCarouselProps) {
   const [logoSets, setLogoSets] = useState<Logo[][]>([])
   const [currentTime, setCurrentTime] = useState(0)
 
@@ -175,7 +180,7 @@ function LogoCarousel({ columnCount = 2 }: { columnCount?: number }) {
 
   // Render the logo columns
   return (
-    <div className="flex space-x-4">
+    <div className={`flex space-x-4 ${className}`.trim()}>
       {logoSets.map((logos, index) => (
         <LogoColumn
           key={index}
