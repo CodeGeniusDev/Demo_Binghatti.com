@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { LeftSidebar } from './LeftSidebar';
 
 export const navLinks = [

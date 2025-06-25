@@ -1,8 +1,9 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { X, ChevronRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { navLinks } from '@/constants/data';
 
 interface LeftSidebarProps {
@@ -44,7 +45,7 @@ export const LeftSidebar = ({ isOpen, onClose }: LeftSidebarProps) => {
     setActiveSubmenu(activeSubmenu === id ? null : id);
   };
 
-  const backdropVariants = {
+  const backdropVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { 
       opacity: 1,
@@ -52,7 +53,7 @@ export const LeftSidebar = ({ isOpen, onClose }: LeftSidebarProps) => {
     }
   };
 
-  const sidebarVariants: { [key: string]: any } = {
+  const sidebarVariants: Variants = {
     closed: { 
       x: '-100%',
       transition: { 
@@ -71,7 +72,7 @@ export const LeftSidebar = ({ isOpen, onClose }: LeftSidebarProps) => {
     }
   };
 
-  const linkVariants: { [key: string]: any } = {
+  const linkVariants: Variants = {
     hidden: { x: -20, opacity: 0 },
     visible: (i: number) => ({
       x: 0,
@@ -116,9 +117,11 @@ export const LeftSidebar = ({ isOpen, onClose }: LeftSidebarProps) => {
                   className="text-2xl font-bold text-white"
                   onClick={onClose}
                 >
-                  <img 
+                  <Image 
                     src="https://binghattiweb.imgix.net/logo.svg" 
                     alt="Binghatti" 
+                    width={128}
+                    height={32}
                     className="h-8 w-auto"
                   />
                 </Link>
