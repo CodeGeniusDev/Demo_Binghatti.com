@@ -78,8 +78,8 @@ const SocialLinks: React.FC = () => {
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   const renderDesktopView = () => (
-    <div className="fixed left-0 top-1/2 -translate-y-1/2 z-100">
-      <div className={`flex flex-col items-center gap-4 bg-gray-900/90 backdrop-blur-sm p-3 rounded-r-lg shadow-xl border border-gray-700/50`}>
+    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-100">
+      <div className={`flex flex-col items-center gap-4 bg-gray-900/90 backdrop-blur-sm p-3 rounded-l-lg shadow-xl border border-gray-700/50`}>
         {socialLinks.map((link) => (
           <div key={link.id} className="group relative">
             <a
@@ -91,9 +91,9 @@ const SocialLinks: React.FC = () => {
               onClick={() => trackSocialClick(link.id)}
             >
               {link.icon}
-              <span className={`absolute left-full top-1/2 ml-3 px-2 py-1 bg-gray-800 text-white text-xs font-medium rounded whitespace-nowrap ${isReducedMotion ? "" : "opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 ease-in-out"} -translate-y-1/2 pointer-events-none`}>
+              <span className={`absolute right-full top-1/2 mr-3 px-2 py-1 bg-gray-800 text-white text-xs font-medium rounded whitespace-nowrap ${isReducedMotion ? "" : "opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 ease-in-out"} -translate-y-1/2 pointer-events-none`}>
                 {link.label}
-                <span className="absolute right-full top-1/2 w-2 h-2 -mr-1 -translate-y-1/2 rotate-45 bg-gray-800"></span>
+                <span className="absolute left-full top-1/2 w-2 h-2 -ml-1 -translate-y-1/2 rotate-45 bg-gray-800"></span>
               </span>
             </a>
           </div>
@@ -103,8 +103,8 @@ const SocialLinks: React.FC = () => {
   );
 
   const renderTabletView = () => (
-    <div className="fixed left-0 top-1/2 -translate-y-1/2 z-100">
-      <div className={`flex flex-col items-center gap-3 bg-gray-900/90 backdrop-blur-sm p-2 rounded-r-lg shadow-xl border border-gray-700/50`}>
+    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-100">
+      <div className={`flex flex-col items-center gap-3 bg-gray-900/90 backdrop-blur-sm p-2 rounded-l-lg shadow-xl border border-gray-700/50`}>
         {socialLinks.map((link) => (
           <a
             key={link.id}
@@ -123,21 +123,23 @@ const SocialLinks: React.FC = () => {
   );
 
   const renderMobileView = () => (
-    <div className="fixed top-[40%] left-0 z-100" onKeyDown={handleKeyDown}>
+    <div className="fixed top-[40%] right-0 z-100" onKeyDown={handleKeyDown} dir="rtl">
       <button
         ref={buttonRef}
         onClick={toggleMenu}
-        className={`w-12 h-12 bg-gray-900/90 backdrop-blur-sm border border-gray-700/50 rounded-r-full shadow-lg flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 cursor-pointer`}
+        className={`w-12 h-12 bg-gray-900/90 backdrop-blur-sm border border-gray-700/50 rounded-l-full shadow-lg flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 cursor-pointer`}
         aria-label={isMenuOpen ? "Close social menu" : "Open social menu"}
+        dir="ltr"
       >
         {isMenuOpen ? <X className="w-6 h-6 text-gray-200" /> : <Menu className="w-6 h-6 text-gray-200" />}
       </button>
 
       <div
         ref={menuRef}
-        className={`fixed top-1/2 left-14 transform -translate-y-1/2 transition-all duration-500 ease-in-out ${
-          isMenuOpen ? "opacity-100 scale-100 translate-x-0" : "opacity-0 scale-90 -translate-x-10 pointer-events-none"
+        className={`fixed top-1/2 right-16 transform -translate-y-1/2 transition-all duration-500 ease-in-out ${
+          isMenuOpen ? "opacity-100 scale-100 translate-x-0" : "opacity-0 scale-90 translate-x-10 pointer-events-none"
         } flex flex-col items-center gap-3 bg-gray-900/90 backdrop-blur-sm p-3 rounded-lg shadow-2xl border border-gray-700/50`}
+        dir="ltr"
       >
         {socialLinks.map((link) => (
           <a
