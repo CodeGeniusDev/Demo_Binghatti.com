@@ -18,6 +18,7 @@ export interface NavLink {
   title: string;
   href: string;
   icon: ReactNode;
+  submenu?: NavLink[];
 }
 
 export const navLinks: NavLink[] = [

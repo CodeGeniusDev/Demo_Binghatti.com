@@ -1,4 +1,4 @@
-import { navLinks } from "./Header";
+import { navLinks } from "@/constants/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
