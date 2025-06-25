@@ -25,7 +25,7 @@ export function CarouselDemo() {
     },
   ];
   return (
-    <div className="relative overflow-hidden w-full h-screen py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+    <div className="relative overflow-hidden w-full h-screen py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 flex justify-center items-center">
       <Carousel slides={slideData} />
     </div>
   );
